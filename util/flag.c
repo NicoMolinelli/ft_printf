@@ -57,3 +57,14 @@ int	get_prec(t_data *data, int precision, int silent)
 	}
 	return (count);
 }
+
+/* Debug flags */
+// static void	print_p(t_data *params)
+// {
+// 	printf("\nhex: %d\n", params->hex);
+// 	printf("left_pad: %d\n", params->left_pad);
+// 	printf("pad: %c\n", params->pad);
+// 	printf("plus_sign: %d\n", params->plus_sign);
+// 	printf("width: %d\n", params->width);
+// 	printf("precision: %d\n", params->precision);
+// }

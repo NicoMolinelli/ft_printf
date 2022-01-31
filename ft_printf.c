@@ -12,18 +12,7 @@
 
 #include <ft_printf_bonus.h>
 
-/* Debug flags */
-// static void	print_p(t_data *params)
-// {
-// 	printf("hex: %d\n", params->hex);
-// 	printf("left_pad: %d\n", params->left_pad);
-// 	printf("pad: %c\n", params->pad);
-// 	printf("plus_sign: %d\n", params->plus_sign);
-// 	printf("width: %d\n", params->width);
-// 	printf("precision: %d\n", params->precision);
-// }
-
-static int	bye(t_data *data, int	*tot)
+static int	clean(t_data *data, int	*tot)
 {
 	if (data)
 	{
@@ -56,5 +45,5 @@ int	ft_printf(const char *s, ...)
 			tot += ft_putchar(*s);
 		s++;
 	}
-	return (bye(data, &tot));
+	return (clean(data, &tot));
 }

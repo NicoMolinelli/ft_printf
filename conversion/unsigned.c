@@ -49,9 +49,10 @@ int	pf_unsigned_x(t_data *data)
 	save_nb(data, num, &length);
 	if (data->hex && data->format != 'u' && num != 0)
 		length += 2;
+	else if (!num && data->precision == 0)
+		length = 0;
 	put_pad(data, &length, &tot);
 	put_prefix(data, num, &tot);
-	// printf("numer%u\n", num);
 	if (data->precision != 0 || num != 0)
 	{
 		tot += get_prec(data, data->precision, 0);
