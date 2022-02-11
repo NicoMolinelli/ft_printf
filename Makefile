@@ -33,39 +33,27 @@ INCL_DIR	=	includes
 OBJS_DIR	=	objs
 OBJS_SUBDIR	=	$(OBJS_DIR)/$(CONF_DIR) $(OBJS_DIR)/$(CONV_DIR) $(OBJS_DIR)/$(UTIL_DIR)
 
-CONF_PATH	=	$(addprefix $(CONF_DIR)/, $(CONF_SRCS))
-CONV_PATH	=	$(addprefix $(CONV_DIR)/, $(CONV_SRCS))
-UTIL_PATH	=	$(addprefix $(UTIL_DIR)/, $(UTIL_SRCS))
+SRCS		+=	$(addprefix $(CONF_DIR)/, $(CONF_SRCS))
+SRCS		+=	$(addprefix $(CONV_DIR)/, $(CONV_SRCS))
+SRCS		+=	$(addprefix $(UTIL_DIR)/, $(UTIL_SRCS))
 
 OBJS		=	$(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
-OBJS		+=	$(subst $(CONF_DIR)/,$(OBJS_DIR)/$(CONF_DIR)/,$(CONF_PATH:.c=.o))
-OBJS		+=	$(subst $(CONV_DIR)/,$(OBJS_DIR)/$(CONV_DIR)/,$(CONV_PATH:.c=.o))
-OBJS		+=	$(subst $(UTIL_DIR)/,$(OBJS_DIR)/$(UTIL_DIR)/,$(UTIL_PATH:.c=.o))
 
-CC 		=	gcc
+CC 			=	gcc
 
-CFLAGS	=	-Wall -Werror -Wextra -I $(INCL_DIR)
+CFLAGS		=	-Wall -Werror -Wextra -I $(INCL_DIR)
 
-RM		=	rm -f
+RM			=	rm -f
 
 all: ${NAME}
 
-${NAME}: | $(OBJS_DIR) ${OBJS}
+${NAME}: $(OBJS_DIR) ${OBJS}
 	@ar rc ${NAME} ${OBJS}
 	@echo ${NAME} created!
 
 bonus: ${NAME}
 
 $(OBJS_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-$(OBJS_DIR)/$(CONF_DIR)/%.o: $(CONF_DIR)/%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-$(OBJS_DIR)/$(CONV_DIR)/%.o: $(CONV_DIR)/%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-$(OBJS_DIR)/$(UTIL_DIR)/%.o: $(UTIL_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(OBJS_DIR):
