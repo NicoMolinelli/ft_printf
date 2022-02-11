@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include <ft_printf.h>
 
 /** reset_params() **/
-// should bzero conversion??
 static t_data	*reset_params(t_data *params)
 {
 	params->hex = 0;

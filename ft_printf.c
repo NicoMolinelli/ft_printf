@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf_bonus.h>
+#include <ft_printf.h>
 
 static int	clean(t_data *data, int	*tot)
 {
@@ -24,9 +24,9 @@ static int	clean(t_data *data, int	*tot)
 
 int	ft_printf(const char *s, ...)
 {
-	t_data	*data;
-	int		tot;
-	int		(*refs[254])(t_data*);
+	t_data			*data;
+	int				tot;
+	static int		(*refs[256])(t_data*);
 
 	tot = 0;
 	data = malloc(sizeof(t_data));

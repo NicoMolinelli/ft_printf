@@ -37,8 +37,8 @@ typedef struct s_data
 }	t_data;
 
 int		ft_printf(const char *s, ...);
-void	set_refs(int (*refs[254])(t_data*));
-int		jump_to_ref(int (*refs[254])(t_data*), int c, t_data *data);
+void	set_refs(int (*refs[256])(t_data*));
+int		jump_to_ref(int (*refs[256])(t_data*), int c, t_data *data);
 void	set_params(const char **str, t_data *params);
 int		ft_putchar(int c);
 int		ft_putstr(char *s);

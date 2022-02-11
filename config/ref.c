@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf_bonus.h>
+#include <ft_printf.h>
 
-void	set_refs(int (*refs[254])(t_data*))
+void	set_refs(int (*refs[256])(t_data*))
 {
 	refs['%'] = pf_percent;
 	refs['c'] = pf_char;
@@ -25,7 +25,7 @@ void	set_refs(int (*refs[254])(t_data*))
 	refs['X'] = pf_unsigned_x;
 }
 
-int	jump_to_ref(int (*refs[254])(t_data*), int c, t_data *data)
+int	jump_to_ref(int (*refs[256])(t_data*), int c, t_data *data)
 {
 	if (refs[c])
 		return (refs[c](data));

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf_bonus.h>
+#include <ft_printf.h>
 
 // put padding left
 void	put_pad(t_data *data, int *length, int *tot)
